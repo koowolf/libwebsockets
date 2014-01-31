@@ -25,6 +25,18 @@
 #include <tchar.h>
 #include <io.h>
 #include <mstcpip.h>
+#include <winsock2.h>
+
+extern int WSAAPI WSAPoll(
+	_Inout_  WSAPOLLFD fdarray[],
+	_In_     ULONG nfds,
+	_In_     INT timeout
+	);
+
+extern char *getenv( 
+	const char *varname 
+	);
+
 #else
 #ifdef LWS_BUILTIN_GETIFADDRS
 #include <getifaddrs.h>
@@ -1664,9 +1676,13 @@ libwebsocket_create_context(struct lws_context_creation_info *info)
 		poll = emulated_poll;
 
 		/* if windows socket lib available, use his WSAPoll */
-		wsdll = GetModuleHandle(_T("Ws2_32.dll"));
-		if (wsdll)
-			poll = (PFNWSAPOLL)GetProcAddress(wsdll, "WSAPoll");
+		//wsdll = GetModuleHandle(_T("Ws2_32.dll"));
+		//if (wsdll)
+
+			//typedef ULONGLONG(WINAPI *PtrGetTickCount64)(WSAPOLLFD fdarray[], ULONG nfds, INT timeout);
+			//static PtrGetTickCount64 ptrGetTickCount64 = 0;
+
+		poll = (PFNWSAPOLL)&WSAPoll;
 
 		/* Finally fall back to emulated poll if all else fails */
 		if (!poll)

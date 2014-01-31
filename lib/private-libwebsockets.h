@@ -20,6 +20,7 @@
  */
 
 /* System introspection configs */
+#define CMAKE_BUILD
 #ifdef CMAKE_BUILD
 #include "lws_config.h"
 #else

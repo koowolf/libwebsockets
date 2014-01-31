@@ -1,5 +1,5 @@
 #include < time.h >
-#include <windows.h> //I've ommited context line.
+#include <winsock2.h> //I've ommited context line.
 #if defined(_MSC_VER) || defined(_MSC_EXTENSIONS)
   #define DELTA_EPOCH_IN_MICROSECS  11644473600000000Ui64
 #else
@@ -40,8 +40,8 @@ int gettimeofday(struct timeval *tv, struct timezone *tz)
 	  _tzset();
 	  tzflag++;
 	}
-	tz->tz_minuteswest = _timezone / 60;
-	tz->tz_dsttime = _daylight;
+	tz->tz_minuteswest = _get_timezone(0) / 60;
+	tz->tz_dsttime = _get_daylight(0);
   }
  
   return 0;
