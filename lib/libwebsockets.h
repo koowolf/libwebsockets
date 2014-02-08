@@ -37,7 +37,9 @@ extern "C" {
 #include <stddef.h>
 #include "../win32port/win32helpers/websock-w32.h"
 
+#ifndef CC_TARGET_PLATFORM
 #include "../win32port/win32helpers/gettimeofday.h"
+#endif
 
 #define strcasecmp stricmp
 #define getdtablesize() 30000

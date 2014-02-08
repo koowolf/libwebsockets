@@ -15,7 +15,7 @@
 #define LWS_BUILD_HASH "81877e6"
 
 /* Build with OpenSSL support */
-//#define LWS_OPENSSL_SUPPORT
+#define LWS_OPENSSL_SUPPORT
 
 /* Sets the path where the client certs should be installed. */
 #define LWS_OPENSSL_CLIENT_CERTS "."
