@@ -30,6 +30,7 @@
     <ClInclude Include="..\lib\extension-deflate-frame.h" />
     <ClInclude Include="..\lib\extension-deflate-stream.h" />
     <ClInclude Include="..\lib\lws_config.h" />
+    <ClInclude Include="..\lib\nldef.h" />
     <ClInclude Include="..\lib\private-libwebsockets.h" />
     <ClInclude Include="..\win32port\win32helpers\gettimeofday.h" />
     <ClInclude Include="..\win32port\win32helpers\websock-w32.h" />
@@ -135,6 +136,7 @@
     <GenerateManifest>false</GenerateManifest>
     <OutDir>$(SolutionDir)WP8\redist\vs2012\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</OutDir>
     <IntDir>WP8\$(Platform)\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <GenerateManifest>false</GenerateManifest>
